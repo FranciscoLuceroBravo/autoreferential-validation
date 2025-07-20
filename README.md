@@ -4,7 +4,7 @@ This repository contains the source code and data associated with the computatio
 
 \[ D^{(d)}_n = 2j(j-1) \quad \text{where} \quad D^{(d)}_n = n(n-1)(dn - d + 1). \]
 
-The code was written in SageMath and executed to verify integer solutions for \( n \leq 1{,}000{,}000 \) and various dimensions \( d \geq 2 \). The results are stored in `data/congruent_pairs_up_to_1M.csv`.
+The code was written in SageMath and executed to verify integer solutions for \( n \leq 1{,}000{,}000 \) and various dimensions \( d \geq 2 \). The results are stored in `.csv` reporting each time 100.000 pairs is finded. 
 
 ## Repository Structure
 
