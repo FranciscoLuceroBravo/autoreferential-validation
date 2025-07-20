@@ -15,4 +15,3 @@ The code was written in SageMath and executed to verify integer solutions for \(
 ## Author
 
 Francisco Lucero (2025)  
-⚠️ The full CSV dataset of validated pairs up to \( n = 1{,}000{,}000 \) is currently being generated and will be uploaded shortly. Current runtime suggests a total duration of ~4 days on a basic laptop. This repository will be updated accordingly.
