@@ -1,82 +1,74 @@
-================================================================================
-STRUCTURED SUBFAMILIES OF CONGRUENT NUMBERS: COMPUTATIONAL FRAMEWORK
-================================================================================
-Author: Francisco Javier Lucero Bravo
-Date: January 2026
-Language: SageMath / Python 3.x
---------------------------------------------------------------------------------
+========================================================================
+ALGEBRAIC GENERATIVE FRAMEWORK FOR CONGRUENT NUMBERS
+========================================================================
 
-This repository contains the mathematical implementation of the "Lucero Network"
-and the Recursive Power Operators (RPM) for generating structured subfamilies 
-of congruent numbers, as described in the preprint: "Structured Subfamilies of 
-Congruent Numbers via Recursive Power Operators and Autoreferential Networks".
+Author: Francisco J. Lucero Bravo
+Independent Researcher - Santiago, Chile
+Contact: fjlucerob@gmail.com
 
----
-1. CORE CONCEPTS
----
-The provided scripts validate that numerical congruence is an emergent 
-structural property linked to the "Oblong Nucleus" n(n-1). Unlike stochastic 
-searches, this framework uses a deterministic operator:
-D_n^(d) = n(n-1)(dn - d + 1)
+------------------------------------------------------------------------
+RESEARCH OVERVIEW
+------------------------------------------------------------------------
+This repository provides the computational evidence and generative 
+algorithms supporting the research paper: "A Purely Algebraic 
+Generative Framework for Congruent Numbers".
 
-The network is organized around a core at d=2 (Parametric Order 2).
+The framework introduces a deterministic algebraic operator capable of 
+identifying congruent numbers through an autoreferential identity:
+D_n(d) = n(n-1)(d(n-1)+1) = 2j(j-1).
 
----
-2. FILE DESCRIPTIONS
----
+While d=2 represents the core seed of classical Pythagorean areas, 
+higher dimensions (d > 2) are shown to preserve congruency through 
+verified rational maps and elliptic curve isomorphisms.
 
-[MW_sum.sage.py]
-Theoretic validation script. It demonstrates that the anchor points (n=4, n=5, 
-n=8) are EXCEPTIONAL and RARE integral points. By performing the Mordell-Weil 
-sum of anchors P1(4, 13) and P2(5, 19), the script shows the resulting point 
-is rational but not an integral anchor. This confirms that these nodes are 
-unique arithmetic occurrences rather than trivial products of the group law.
+------------------------------------------------------------------------
+CORE REPOSITORY FILES
+------------------------------------------------------------------------
 
-[rank_ec.sage.py / elliptic_curve.sage.py]
-Defines the elliptic curve y^2 = 4n^3 - 6n^2 + 2n + 1. Uses the 
-'integral_points()' method to verify the finiteness of the primary anchors 
-under Siegel's Theorem and calculates the rank (Mordell-Weil Rank = 2).
+1. DATASETS
+- 450000_pairs.csv: Primary dataset (450,573 entries) recording the 
+  network's expansion from d=2 up to d ≈ 10^10.
+- Tunnell1000random.csv: Statistical validation results against 
+  Tunnell’s Criterion for sampled consistency.
 
-[autoref_validation.sage.py]
-The main engine. It iterates through dimensions (d) and parameters (n) to 
-identify nodes where D_n^(d) = 2j(j-1). It was used to generate the 450,000 
-case database mentioned in the research.
+2. GENERATIVE & STATISTICAL ENGINES
+- autoref_1G_validation.sage: The main generative engine using the 
+  inverse equation logic to project congruent candidates.
+- counting_database.py: Statistical audit script confirming the power-law 
+  distribution and the "funnel effect" of the generative process.
+- log_table.py: Computes asymptotic density, confirming the power-law 
+  exponent α ≈ 2 via log(N) vs. log(D_max) analysis.
 
-[rep.sage.py]
-"Reverse Engineering Protocol". It decomposes classical elliptic curves (like 
-the Fibonacci curve for n=6) to reveal the hidden "Area Operator" and its 
-tuning parameters, providing a path toward structural unification.
+3. ELLIPTIC CURVE VALIDATION
+- twist_extension.sage.py: Validates the "Table of 17 Routes", confirming 
+  isomorphisms between extended curves and anchor curves.
+- rank_ec.sage.py: Verifies the Mordell-Weil rank to ensure rational 
+  points of infinite order.
+- test_mapa_racional.sage.py: Tools to analyze isogenies and rational 
+  maps between specific network nodes.
+- ec_structure_robust.sage.py: Analyzes j-invariants and discriminants 
+  to ensure structural integrity.
 
-[densidad_lucero.sage.py]
-Analyzes the internal density of the subfamily (rho ≈ 0.152) and the variance 
-of the "arithmetic vein," confirming the regularity of the distribution.
+4. ROBUSTNESS & VISUALIZATION
+- tunnell_validation.sage.py: Redundancy audit for the d=2 core, ensuring 
+  consistency with classical arithmetic criteria.
+- infinity_robustness.sage.py: Stress tests for the operator's stability 
+  in the asymptotic limit.
+- ec_visual.sage.py / graph.sage: Topological visualization of the 
+  congruent number network connectivity.
 
-[densidad_smith_lucero.sage.py]
-Compares the Lucero Network's coverage against the 60% theoretical natural 
-density predicted by Alexander Smith. It distinguishes between global 
-density and the "penetration ratio" of this structured subfamily.
+------------------------------------------------------------------------
+USAGE & REQUIREMENTS
+------------------------------------------------------------------------
+- Requirements: SageMath (9.0+), Python 3.8+, Pandas, NumPy.
+- To replicate the 17 Routes validation: run 'sage twist_extension.sage.py'
+- To verify core redundancy: run 'sage tunnell_validation.sage.py'
 
-[infinity_test.sage.py / infinity_robustness.sage.py]
-Log-log regression analysis to prove the asymptotic persistence of the network. 
-Confirms a slope alpha ≈ 2.0, proving the subfamily is infinite and 
-characterizing it as a process of "dilution" rather than "extinction."
-
-[graph_code.txt]
-Python code using NetworkX to visualize the "hub-and-spoke" architecture of 
-the network, where superior dimensions converge into the d=2 nucleus.
-
----
-3. USAGE
----
-These scripts are designed to run in a SageMath environment.
-To execute a script:
-$ sage <filename>.sage.py
-
----
-4. CITATION
----
-Please cite the original work if you use these algorithms:
-Lucero Bravo, F. J. (2025). "Structured Subfamilies of Congruent Numbers via 
-Recursive Power Operators and Autoreferential Networks". Independent Researcher.
-
-================================================================================
+------------------------------------------------------------------------
+KEY FINDINGS
+------------------------------------------------------------------------
+- Transition from probabilistic to deterministic generation of D.
+- Asymptotic density growth follows a stable power-law with α ≈ 2.
+- Every node in the network is linked to a Pythagorean seed (d=2) 
+  through a verifiable algebraic map.
+========================================================================
